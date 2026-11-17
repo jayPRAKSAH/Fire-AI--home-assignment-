@@ -53,7 +53,7 @@ These selected photographs avoid showing identifiable gym users. If other photog
 ## 5. Data Collection
 
 - **Required dataset:** At least 20 genuine observations collected personally at the gym.
-- **File:** `data/gym_observations_real.csv`
+- **File:** `data.csv`
 - **Columns:** `timestamp`, `people_present`, `equipment_in_use`, `equipment_total`, `waiting_people`
 - **Collection method:** At each observation, record the actual number of people inside, the number of equipment units in use, the total usable equipment units and the number of people waiting. Apply the same counting rules each time and do not record personal identifiers.
 
@@ -72,7 +72,7 @@ These selected photographs avoid showing identifiable gym users. If other photog
 - [ ] Speak with the gym attendant/guard to confirm how entry, exit and attendance are currently managed.
 - [ ] Confirm the actual opening hours and any student/faculty access arrangements with the gym authority.
 - [ ] Confirm the approved maximum occupancy with the responsible authority; do not infer capacity from room size.
-- [ ] Add at least 20 genuine, timestamped observation rows to `data/gym_observations_real.csv`.
+- [ ] Add at least 20 genuine, timestamped observation rows to `data.csv`.
 
 ## 7. Implications for GymFlow
 

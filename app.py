@@ -18,6 +18,7 @@ PROJECT_ROOT = Path(__file__).parent
 DATA_DIR = PROJECT_ROOT / "data"
 STATE_PATH = DATA_DIR / "current_state.json"
 LOG_PATH = DATA_DIR / "attendance_log.csv"
+FIELDWORK_DATA_PATH = PROJECT_ROOT / "data.csv"
 SAMPLE_PATH = DATA_DIR / "gymflow_demo_sample.xlsx"
 
 
@@ -57,11 +58,15 @@ def inject_styles() -> None:
 
 
 def load_dashboard_data() -> tuple[pd.DataFrame, str]:
-    """Return uploaded data for this session, or bundled development data."""
+    """Return session data, otherwise the real fieldwork CSV when it has rows."""
     uploaded = st.session_state.get("observations")
     if uploaded is not None:
-        return uploaded.copy(), "Uploaded dataset"
-    return load_sample_data(SAMPLE_PATH), "Bundled development sample"
+        return uploaded.copy(), st.session_state.get("observation_source", "Uploaded dataset")
+    if FIELDWORK_DATA_PATH.exists():
+        fieldwork_data = load_observations(FIELDWORK_DATA_PATH)
+        if not fieldwork_data.empty:
+            return fieldwork_data, "Fieldwork data (data.csv)"
+    return pd.DataFrame(columns=REQUIRED_COLUMNS), "No fieldwork observations yet"
 
 
 def render_dashboard(state: dict[str, int | str | None]) -> None:
@@ -105,8 +110,11 @@ def render_dashboard(state: dict[str, int | str | None]) -> None:
     st.divider()
     st.subheader("Historical crowd patterns")
     observations, source = load_dashboard_data()
-    report = validate_observations(observations, capacity)
     st.caption(f"Source: {source}")
+    if observations.empty:
+        st.info("No genuine fieldwork observations are available yet. Add at least 20 personally collected rows to data.csv, or upload a dataset for a temporary review.")
+        return
+    report = validate_observations(observations, capacity)
     if not report.is_valid:
         st.error("The selected historical dataset cannot be analysed.")
         for error in report.errors:
@@ -187,6 +195,7 @@ def render_data_panel(capacity: int) -> None:
             report = validate_observations(observations, capacity)
             if report.is_valid:
                 st.session_state["observations"] = observations
+                st.session_state["observation_source"] = "Uploaded dataset"
                 st.success(f"{len(observations)} valid observations loaded. Open Dashboard to review the analysis.")
                 st.dataframe(observations, hide_index=True, use_container_width=True)
             else:
@@ -197,7 +206,8 @@ def render_data_panel(capacity: int) -> None:
             st.error(str(error))
 
     if st.button("Use bundled development sample"):
-        st.session_state.pop("observations", None)
+        st.session_state["observations"] = load_sample_data(SAMPLE_PATH)
+        st.session_state["observation_source"] = "Bundled development sample"
         st.success("Using the bundled development-only sample data.")
 
     st.info("The bundled sample is synthetic and must be replaced with personally collected observations for assignment submission.")

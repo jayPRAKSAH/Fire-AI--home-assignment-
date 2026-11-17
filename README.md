@@ -4,7 +4,7 @@ GymFlow is a lightweight Python and Streamlit prototype for helping students and
 
 **GymFlow is not a booking system.** Users view the displayed information and decide when to visit. An attendant updates the current count when someone enters or leaves.
 
-> **Fieldwork status:** A 20-minute visit and a conversation with a student have been documented in [`fieldwork.md`](fieldwork.md), with two selected photographs in [`photos/`](photos/). The real-observation CSV currently contains only its header. At least 20 genuine, personally measured rows are still required before final submission.
+> **Fieldwork status:** A 20-minute visit and a conversation with a student have been documented in [`fieldwork.md`](fieldwork.md), with two selected photographs in [`photos/`](photos/). The real-observation file is [`data.csv`](data.csv), which currently contains only its header. At least 20 genuine, personally measured rows are still required before final submission.
 
 ## Problem and intended users
 
@@ -73,7 +73,7 @@ The application validates required columns, timestamps, numeric values, non-nega
 
 ## Data files and integrity
 
-- `data/gym_observations_real.csv` is reserved for actual fieldwork observations. It is currently a header-only template and must be filled with at least 20 genuine measured rows before submission.
+- `data.csv` is reserved for actual fieldwork observations and is the dashboard's default historical-data source. It is currently a header-only template and must be filled with at least 20 genuine measured rows before submission.
 - `data/gymflow_demo_sample.xlsx` and `data/gym_observations_sample.csv` are synthetic/development examples. They are for software testing only and must never be described as fieldwork.
 - Uploaded historical files are analysed in memory and are not permanently stored by the application.
 
