@@ -105,7 +105,7 @@ pytest
 
 ## Demo
 
-The three-minute screen recording link will be added to [`demo/demo-link.txt`](demo/demo-link.txt) after recording the completed application with actual fieldwork data.
+Watch the completed [three-minute GymFlow demonstration on Google Drive](https://drive.google.com/file/d/1z-ZTo5msltKrELBMjvSG-ehgOuhvMF5b/view?usp=sharing). The narration and click-by-click plan are in [`demo/video-script.md`](demo/video-script.md).
 
 ## Limitations
 
