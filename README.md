@@ -103,6 +103,26 @@ The image filenames indicate a time around 9:45 PM, which appears later than the
 pytest
 ```
 
+## How to understand the project
+
+Read the project in this order:
+
+1. Start with [research.md](research.md) to understand the problem, users, existing solutions, and original scope.
+2. Read [fieldwork.md](fieldwork.md) to see the visit evidence, user conversation, data-collection method, and items still awaiting confirmation.
+3. Open [data.csv](data.csv), the required file for genuine gym observations. The application uses it as the default historical-data source after you add your personally collected rows.
+4. Read [app.py](app.py), the Streamlit entry point. It builds the Dashboard, Attendant, and Data upload tabs and connects the modules below.
+5. Read the `src/` modules in this order:
+
+| File | Responsibility |
+| --- | --- |
+| [data_loader.py](src/data_loader.py) | Reads CSV/XLSX files and normalises column names. |
+| [validation.py](src/validation.py) | Rejects missing fields, invalid timestamps, negative values, excess occupancy, and invalid equipment totals. |
+| [occupancy.py](src/occupancy.py) | Calculates occupancy percentage, remaining spaces, crowd status, and historical summaries. |
+| [counter.py](src/counter.py) | Updates the live entry/exit counter and saves local JSON/CSV audit records. |
+| [test_occupancy.py](tests/test_occupancy.py) | Tests crowd thresholds, validation, and counter boundaries. |
+
+The main data flow is: `data.csv` or uploaded CSV/XLSX → `data_loader.py` → `validation.py` → `occupancy.py` → Dashboard chart and summary. The separate attendant flow is: entry/exit button → `counter.py` → `current_state.json` and `attendance_log.csv`.
+
 ## Demo
 
 Watch the completed [three-minute GymFlow demonstration on Google Drive](https://drive.google.com/file/d/1z-ZTo5msltKrELBMjvSG-ehgOuhvMF5b/view?usp=sharing). The narration and click-by-click plan are in [`demo/video-script.md`](demo/video-script.md).
