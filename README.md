@@ -118,3 +118,15 @@ ChatGPT was used as an assistant for planning, implementation support, testing i
 - Capacity, colour thresholds, opening hours, and student/faculty session allocations must be confirmed with the gym authority.
 - Local JSON/CSV files are not a secure multi-user database and are not suitable for concurrent multi-device updates.
 - This prototype is not an official access-control or safety system.
+
+## Important submission files
+
+- [Research and initial problem definition](research.md)
+- [Fieldwork notes, interview summary, and data-collection method](fieldwork.md)
+- [Personal reflection](reflection.md)
+- [Real fieldwork dataset - add at least 20 genuine rows before submission](data.csv)
+- [Selected gym environment photo](photos/gym_environment_2026-11-17_21-45-56.jpeg)
+- [Selected gym equipment photo](photos/gym_equipment_2026-11-17_21-45-57.jpeg)
+- [All gym photographs](photos/)
+- [Three-minute application demonstration](https://drive.google.com/file/d/1z-ZTo5msltKrELBMjvSG-ehgOuhvMF5b/view?usp=sharing)
+- [ChatGPT assistance record and conversation link](ai-chats/conversations.md)
