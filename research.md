@@ -1,14 +1,18 @@
 
 # Research: Local Problem Identification
 
+
 ## 1. Problem Statement
 
-- **Problem observed:** [Describe the actual problem you personally observed.]
-- **Location:** [Actual location near your home or college.]
-- **Date observed:** [Actual date within the last seven days.]
-- **Affected person:** [Real person's name and role.]
-- **Current situation:** [How does this person currently handle the problem?]
+- **Problem observed:** During busy periods, multiple students submit photocopying and printing orders at the same time. Managing pending orders and estimating their completion times can become difficult for the shopkeeper. As a result, students may have to repeatedly ask when their orders will be ready.
 
+- **Location:** [Name of the actual photocopy shop and its location near NIT Jamshedpur.]
+
+- **Date observed:** [Enter the actual date when you personally observed this problem.]
+
+- **Affected person:** [Actual name of the shopkeeper], Shopkeeper at [Shop Name].
+
+- **Current situation:** The shopkeeper currently manages incoming photocopying and printing orders using [describe the actual method, such as a verbal queue, handwritten register, or another process]. There is an opportunity to simplify pending-order tracking and provide more reliable completion-time estimates.
 ## 2. Existing Solutions
 
 ### Solution 1: [Name of existing solution]
