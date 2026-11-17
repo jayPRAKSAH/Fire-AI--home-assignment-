@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest-tmp/
+.venv/
+venv/
+.streamlit/secrets.toml
+.streamlit-*.log
+data/current_state.json
+data/attendance_log.csv
