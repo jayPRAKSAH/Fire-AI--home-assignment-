@@ -107,6 +107,10 @@ pytest
 
 Watch the completed [three-minute GymFlow demonstration on Google Drive](https://drive.google.com/file/d/1z-ZTo5msltKrELBMjvSG-ehgOuhvMF5b/view?usp=sharing). The narration and click-by-click plan are in [`demo/video-script.md`](demo/video-script.md).
 
+## AI assistance
+
+ChatGPT was used as an assistant for planning, implementation support, testing ideas, and documentation. The [AI assistance record](ai-chats/conversations.md) includes the [shared ChatGPT conversation](https://chatgpt.com/share/6afca28e-6b14-83ee-8dd7-42e26a69bffc).
+
 ## Limitations
 
 - Current occupancy depends on the attendant recording each entry and exit accurately.
